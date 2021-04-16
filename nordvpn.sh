@@ -20,7 +20,7 @@ connect()
     fi
     enable_sudo
     echo "🌍 Starting OpenVPN with $1"
-    sudo openvpn ~/.config/nordvpn_config/configs/ovpn_udp/$1.nordvpn.com.udp.ovpn >/dev/null &
+    sudo openvpn $HOME/.config/nordvpn_config/configs/ovpn_udp/$1.nordvpn.com.udp.ovpn >/dev/null &
 }
 disconnect()
 {
