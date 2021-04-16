@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-script_name=$(basename $0)
+script_name=nordvpn
 
 status()
 {
