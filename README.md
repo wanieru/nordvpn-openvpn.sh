@@ -3,7 +3,8 @@ Make it easy to use NordVPN with OpenVPN. Bash script to download nordvpn config
 
 # Install
 ### Regular
-1. Download the "nordvpn.sh" to your path, call it "nordvpn"
+1. Make sure you have "openvpn", "unzip" and "wget" in your path.
+2. Download the "nordvpn.sh" to your path, call it "nordvpn"
 
 ### NixOS
 1. Add the following to your config
