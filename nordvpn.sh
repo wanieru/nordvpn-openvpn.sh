@@ -64,7 +64,7 @@ download_configs()
     echo "🗑️ Removing existing config files..."
     rm -rf $HOME/.config/nordvpn_config/configs
     echo "📁 Creating config directory..."
-    mkdir $HOME/.config/nordvpn_config/configs
+    mkdir -p $HOME/.config/nordvpn_config/configs
     echo "📥 Downloading configs..."
     wget https://downloads.nordcdn.com/configs/archives/servers/ovpn.zip -P $HOME/.config/nordvpn_config/
     echo "📦 Unzipping configs..."
@@ -81,14 +81,14 @@ login()
     read -s -p "🔑 Service credentials password: " password
     echo ""
     echo "📁 Creating config directory..."
-    mkdir -p ~/.config/nordvpn_config/
+    mkdir -p $HOME/.config/nordvpn_config/
     echo "🗑️ Removing existing auth file..."
-    rm ~/.config/nordvpn_config/auth
+    rm $HOME/.config/nordvpn_config/auth
     echo "✍️ Writing auth file..."
-    echo "$username" >~/.config/nordvpn_config/auth
-    echo "$password" >>~/.config/nordvpn_config/auth
+    echo "$username" >$HOME/.config/nordvpn_config/auth
+    echo "$password" >>$HOME/.config/nordvpn_config/auth
     echo "🔑 Setting auth file permissions to 400"
-    chmod 400 ~/.config/nordvpn_config/auth
+    chmod 400 $HOME/.config/nordvpn_config/auth
 }
 search()
 {
