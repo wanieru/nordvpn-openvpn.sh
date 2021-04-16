@@ -11,10 +11,7 @@ Make it easy to use NordVPN with OpenVPN. Bash script to download nordvpn config
 ```nix
 users.users.<your username>.packages = 
 [
-  pkgs.unzip
-  pkgs.wget
-  pkgs.openvpn
-  (import "${fetchTarball https://github.com/wanieru/nordvpn-openvpn.sh/archive/main.tar.gz}/nordvpn.nix" pkgs)
+  (import (fetchTarball https://github.com/wanieru/nordvpn-openvpn.sh/archive/main.tar.gz) { inherit pkgs; })
 ];
 ```
 
