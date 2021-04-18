@@ -32,9 +32,5 @@ users.users.<your username>.packages =
 3. `nordvpn ??` - opens the nordvpn "recommended server" web page in firefox.
 4. `nordvpn search <keyword>` - searches among the config files for the specified keywords. For example: "nordvpn search jp"
 
-
-# Todo
-1. Include unzip and wget in the NixOS version of the sh script, so it doesn't rely on them being in your path.
-
 # Contribute
 Feel free to make pull requests to improve the script :)
