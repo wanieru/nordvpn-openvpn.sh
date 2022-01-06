@@ -19,8 +19,27 @@ connect()
         return
     fi
     enable_sudo
-    echo "🌍 Starting OpenVPN with $1"
+
+    get_ip
+    old_ip=$current_ip
+    echo -n "🌍 Starting OpenVPN with $1"
     sudo openvpn $HOME/.config/nordvpn_config/configs/ovpn_udp/$1.nordvpn.com.udp.ovpn >/dev/null &
+    while :
+    do
+        get_ip
+        if [[ "$old_ip" != "$current_ip" ]]
+        then
+            break
+        fi
+        echo -n "..."
+        sleep 0.5
+    done
+    echo ""
+    echo "🏠 IP: $current_ip"
+}
+get_ip()
+{
+    current_ip=$(dig +short myip.opendns.com @resolver4.opendns.com)
 }
 disconnect()
 {
@@ -32,6 +51,8 @@ disconnect()
     else
         echo "🔌 OpenVPN not running!"
     fi
+    get_ip
+    echo "🏠 IP: $current_ip"
 }
 recommended_server()
 {
